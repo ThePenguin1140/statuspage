@@ -6,40 +6,68 @@ import { Todo } from '../models/ToDo/Todo';
 import { TodoStatus } from '../models/interfaces';
 import { expect } from 'chai';
 
-describe('Todo items', () => {
-    @suite('A new instance of a Todo item')
-    class constructorTests {
+describe('Class Tests', () => {
+    describe('Todo items', () => {
+        @suite('A new instance of a Todo item')
+        class constructorTests {
 
-        private readonly content = 'hello world';
+            private static readonly content: string = 'hello world';
+            private static myTodo: Todo;
 
-        @test 'should contain Hello World'() {
-            var myTodo = new Todo( this.content );
-            expect( myTodo.getContent()).to.equal( this.content );
+            static before() {
+                this.myTodo = new Todo( this.content );
+            }
+
+            @test 'should have some content'() {
+                expect( constructorTests.myTodo.getContent() ).to.not.be.undefined.and.to.be.an.instanceof( String );
+            }
+
+            @test 'should have a state'() {
+                expect( constructorTests.myTodo.getStatus() ).to.not.be.undefined;
+            }
+
+            @test 'should be placed in the BACKLOG'() {
+                expect( constructorTests.myTodo.getStatus() ).to.equal( TodoStatus.BACKLOG );
+            }
         }
 
-        @test 'should be in the backlog'() {
-            var myTodo = new Todo( this.content );
-            expect( myTodo.getStatus() ).to.equal( TodoStatus.BACKLOG );
-        }
-    }
+        @suite('Updating information in a Todo item')
+        class updateTests {
+            private static readonly content: string = 'hello world';
+            private static myTodo: Todo;
 
-    @suite('Updating information in a Todo item')
-    class updateTests {
-        private static readonly content: string = 'hello world';
-        private static todoItem: Todo;
+            static before() {
+                this.myTodo = new Todo( this.content );
+            }
 
-        static before() {
-            this.todoItem = new Todo( this.content );
-        }
+            @test 'should be able to move it to DOING'() {
+                const state = TodoStatus.DOING;
+                updateTests.myTodo.setStatus( state );
+                expect( updateTests.myTodo.getStatus() ).to.equal( state );
+            }
 
-        @test 'should be able to move it to DOING'() {
-            updateTests.todoItem.setStatus( TodoStatus.DOING );
-            expect( updateTests.todoItem.getStatus() ).to.equal( TodoStatus.DOING );
-        }
+            @test 'should be able to move it to DONE'() {
+                const state = TodoStatus.DONE;
+                updateTests.myTodo.setStatus( state );
+                expect( updateTests.myTodo.getStatus() ).to.equal( state );
+            }
 
-        @test 'should be able to set the content to foobar'() {
-            updateTests.todoItem.setContent('foobar');
-            expect( updateTests.todoItem.getContent() ).to.equal('foobar');
+            @test 'should be able to move it to BLOCKED'() {
+                const state = TodoStatus.BLOCKED;
+                updateTests.myTodo.setStatus( state );
+                expect( updateTests.myTodo.getStatus() ).to.equal( state );
+            }
+
+            @test 'should be able to move it to BACKLOG'() {
+                const state = TodoStatus.BACKLOG;
+                updateTests.myTodo.setStatus( state );
+                expect( updateTests.myTodo.getStatus() ).to.equal( state );
+            }
+
+            @test 'should be able to set the content to foobar'() {
+                updateTests.myTodo.setContent('foobar');
+                expect( updateTests.myTodo.getContent() ).to.equal('foobar');
+            }
         }
-    }
+    });
 });
