@@ -4,7 +4,11 @@
   "description": "Small web application that displays a SCRUM style todo list and status as to what you're doing!",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "test:w": "concurrently \"npm run tsc:w\" \"npm test\"",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "start": "concurrently \"npm run tsc:w\" \"node index.js\" "
   },
   "repository": {
     "type": "git",
@@ -19,7 +23,9 @@
   "author": "Jason Wuertz",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "^5.2.0"
+    "concurrently": "^4.0.1",
+    "mocha": "^5.2.0",
+    "typescript": "^3.0.3"
   },
   "dependencies": {
     "mongoose": "^5.2.14",
