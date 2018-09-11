@@ -3,10 +3,10 @@ import { Todo } from "../ToDo/Todo";
 
 export class Epic extends Item{
 
-    private _todos: Todo[];
+    private _todos: Array<Item>;
     private _isMaster: boolean;
 
-    constructor( content: string, todos: Item[] = [], isMasterEpic: boolean = false ) {
+    constructor( content: string, todos: Array<Item> = [], isMasterEpic: boolean = false ) {
         super( content );
         this._todos = todos;
         this._isMaster = isMasterEpic;
