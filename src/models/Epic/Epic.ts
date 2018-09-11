@@ -6,11 +6,13 @@ export class Epic {
     private _title: String;
     private _status: TodoStatus;
     private _todos: Todo[];
+    private _progress: Number;
 
     constructor( title: String ) {
         this._title = title;
         this._status = TodoStatus.BACKLOG;
         this._todos = [];
+        this._progress = 0.0;
     }
 
     getTitle() {
@@ -23,5 +25,9 @@ export class Epic {
 
     getStatus() {
         return this._status;
+    }
+
+    getProgress() {
+        return this._progress;
     }
 }

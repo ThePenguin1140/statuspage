@@ -31,5 +31,9 @@ describe( 'Epic items', () => {
         it( 'should be placed in the BACKLOG', () => {
             expect( myEpic.getStatus() ).to.equal(TodoStatus.BACKLOG);
         } );
+
+        it('should return some progress', () => {
+            expect( myEpic.getProgress() ).to.equal( 0.0);
+        });
     } );
 } );
