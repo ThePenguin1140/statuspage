@@ -60,7 +60,8 @@ describe( 'Epic items', () => {
         it('should add new todo items', () => {
             var todo = new Todo('todo1' );
            epic.addTodo( todo );
-           expect( epic.getTodos().length ).to.equal(1).and.equal( [todo] );
+           expect( epic.getTodos().length ).to.equal( 1 );
+           expect( epic.getTodos()[0] ).to.equal( todo );
         });
     } );
 } );
