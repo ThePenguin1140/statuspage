@@ -56,5 +56,11 @@ describe( 'Epic items', () => {
             epic.setContent(title_two);
             expect( epic.getContent() ).to.equal(title_two);
         });
+
+        it('should add new todo items', () => {
+            var todo = new Todo('todo1' );
+           epic.addTodo( todo );
+           expect( epic.getTodos().length ).to.equal(1).and.equal( [todo] );
+        });
     } );
 } );

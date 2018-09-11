@@ -28,4 +28,8 @@ export class Epic extends Item{
     isMaster(): boolean {
         return this._isMaster;
     }
+
+    addTodo( todo: Todo ): void {
+
+    }
 }
