@@ -7,9 +7,10 @@ describe( 'Epic items', () => {
     describe( 'A new instance of an Epic', () => {
         const title: string = 'foobar';
         var myEpic: Epic;
+        var one: Todo;
 
         before( () => {
-            var one: Todo = new Todo( "Todo 1" );
+            one = new Todo( "Todo 1" );
             var two: Todo = new Todo( "Todo 2" );
             myEpic = new Epic( title, [ one, two ] );
         } );
@@ -41,6 +42,10 @@ describe( 'Epic items', () => {
         it( 'should return some progress', () => {
             expect( myEpic.getProgress() ).to.equal( 0.0 );
         } );
+
+        it( 'should return a specific todo', () => {
+            expect( myEpic.getTodo(0) ).to.equal( one );
+        } );
     } );
     describe( 'Updating an Epic', () => {
         var title_one: string = 'title1';
@@ -61,12 +66,12 @@ describe( 'Epic items', () => {
             var todo = new Todo( 'todo1' );
             epic.addTodo( todo );
             expect( epic.getTodos().length ).to.equal( 1 );
-            expect( epic.getTodos()[ 0 ] ).to.equal( todo );
+            expect( epic.getTodo(0) ).to.equal( todo );
         } );
 
         it('should update todos', () => {
             epic.getTodos()[0].setStatus( ItemStatus.DONE );
-            expect( epic.getTodos()[0].getStatus() ).to.equal( ItemStatus.DONE );
+            expect( epic.getTodo(0).getStatus() ).to.equal( ItemStatus.DONE );
         } );
 
         it( 'should update the progress', () => {

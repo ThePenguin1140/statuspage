@@ -32,4 +32,8 @@ export class Epic extends Item{
     addTodo( todo: Todo ): void {
         this._todos = this._todos.concat(todo);
     }
+
+    getTodo( index: number ): Todo {
+        return this._todos[index];
+    }
 }
