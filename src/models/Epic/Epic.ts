@@ -1,6 +1,5 @@
 import { Item, ItemStatus } from "../../interfaces/interfaces";
 import { Todo } from "../ToDo/Todo";
-import * as _ from 'lodash';
 
 export class Epic extends Item{
 
@@ -19,7 +18,7 @@ export class Epic extends Item{
 
     getProgress() {
         if( this._todos.length == 0 ) return 0;
-        return _.reduce( this._todos, ( sum: number, item: Item ) => {
+        return this._todos.reduce( ( sum: number, item: Item ) => {
             if( item.getStatus() == ItemStatus.DONE ) sum++;
             return sum;
         }, 0 ) / this._todos.length;
