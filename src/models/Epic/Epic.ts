@@ -12,11 +12,11 @@ export class Epic extends Item{
         this._isMaster = isMasterEpic;
     }
 
-    getTodos() {
+    getTodos(): Todo[] {
         return this._todos;
     }
 
-    getProgress() {
+    getProgress(): number {
         if( this._todos.length == 0 ) return 0;
         return this._todos.reduce( ( sum: number, item: Item ) => {
             if( item.getStatus() == ItemStatus.DONE ) sum++;
@@ -25,7 +25,7 @@ export class Epic extends Item{
     }
 
 
-    isMaster() {
+    isMaster(): boolean {
         return this._isMaster;
     }
 }
