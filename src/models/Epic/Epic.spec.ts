@@ -12,11 +12,11 @@ describe( 'Epic items', () => {
             var one: Todo = new Todo( "Todo 1" );
             var two: Todo = new Todo( "Todo 2" );
             myEpic = new Epic( title, [ one, two ] );
-        });
+        } );
 
         it( 'should not be a master epic', () => {
             expect( myEpic.isMaster() ).to.be.false;
-        });
+        } );
 
         it( 'should contain a title', () => {
             expect( myEpic.getContent() ).to.not.be.undefined.and.to.be.an.instanceof( String );
@@ -24,10 +24,10 @@ describe( 'Epic items', () => {
 
         it( 'should contain the right title', () => {
             expect( myEpic.getContent() ).to.equal( title );
-        });
+        } );
 
         it( 'should contain a list of todos', () => {
-            expect( myEpic.getTodos() ).to.not.be.undefined.and.to.equal([] );
+            expect( myEpic.getTodos() ).to.not.be.undefined.and.to.equal( [] );
         } );
 
         it( 'should have a state', () => {
@@ -35,33 +35,33 @@ describe( 'Epic items', () => {
         } );
 
         it( 'should be placed in the BACKLOG', () => {
-            expect( myEpic.getStatus() ).to.equal(ItemStatus.BACKLOG);
+            expect( myEpic.getStatus() ).to.equal( ItemStatus.BACKLOG );
         } );
 
-        it('should return some progress', () => {
-            expect( myEpic.getProgress() ).to.equal( 0.0);
-        });
+        it( 'should return some progress', () => {
+            expect( myEpic.getProgress() ).to.equal( 0.0 );
+        } );
     } );
     describe( 'Updating an Epic', () => {
         var title_one: string = 'title1';
         var title_two: string = 'title2';
         var epic: Epic;
 
-        before( ()=>{
-            epic = new Epic(title_one);
-        });
+        before( () => {
+            epic = new Epic( title_one );
+        } );
 
-        it('should change the content', () => {
+        it( 'should change the content', () => {
             expect( epic.getContent() ).to.equal( title_one );
-            epic.setContent(title_two);
-            expect( epic.getContent() ).to.equal(title_two);
-        });
+            epic.setContent( title_two );
+            expect( epic.getContent() ).to.equal( title_two );
+        } );
 
-        it('should add new todo items', () => {
-            var todo = new Todo('todo1' );
-           epic.addTodo( todo );
-           expect( epic.getTodos().length ).to.equal( 1 );
-           expect( epic.getTodos()[0] ).to.equal( todo );
-        });
+        it( 'should add new todo items', () => {
+            var todo = new Todo( 'todo1' );
+            epic.addTodo( todo );
+            expect( epic.getTodos().length ).to.equal( 1 );
+            expect( epic.getTodos()[ 0 ] ).to.equal( todo );
+        } );
     } );
 } );
