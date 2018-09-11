@@ -6,93 +6,93 @@ import { Todo } from '../models/ToDo/Todo';
 import { TodoStatus } from '../models/interfaces';
 import { expect } from 'chai';
 
-describe('Class Tests', () => {
-    describe('Todo items', () => {
-        @suite('A new instance of a Todo item')
-        class constructorTests {
+describe( 'Class Tests', () => {
+    describe( 'Todo items', () => {
 
-            private static readonly content: string = 'hello world';
-            private static myTodo: Todo;
+        describe( 'A new instance of a Todo item', () => {
+            const content: string = 'hello world';
+            var myTodo: Todo;
 
-            static before() {
-                this.myTodo = new Todo( this.content );
-            }
+            before( () => {
+                myTodo = new Todo( content );
+            } );
 
-            @test 'should have some content'() {
-                expect( constructorTests.myTodo.getContent() ).to.not.be.undefined.and.to.be.an.instanceof( String );
-            }
+            it( 'should have some content', () => {
+                expect( myTodo.getContent() ).to.not.be.undefined.and.to.be.an.instanceof( String );
+            } );
 
-            @test 'should have a state'() {
-                expect( constructorTests.myTodo.getStatus() ).to.not.be.undefined;
-            }
+            it( 'should have the right content', () => {
+                expect( myTodo.getContent() ).to.equal( content );
+            } );
 
-            @test 'should be placed in the BACKLOG'() {
-                expect( constructorTests.myTodo.getStatus() ).to.equal( TodoStatus.BACKLOG );
-            }
-        }
+            it( 'should have a state', () => {
+                expect( myTodo.getStatus() ).to.not.be.undefined;
+            } );
 
-        @suite('Updating information in a Todo item')
-        class updateTests {
-            private static readonly content: string = 'hello world';
-            private static myTodo: Todo;
+            it( 'should be placed in the BACKLOG', () => {
+                expect( myTodo.getStatus() ).to.equal( TodoStatus.BACKLOG );
+            } );
+        } );
 
-            static before() {
-                this.myTodo = new Todo( this.content );
-            }
+        describe( 'Updating information in a Todo item', () => {
+            const content: string = 'hello world';
+            var myTodo: Todo;
 
-            @test 'should be able to move it to DOING'() {
+            before( () => {
+                myTodo = new Todo( content );
+            } );
+
+            it( 'should be able to move it to DOING', () => {
                 const state = TodoStatus.DOING;
-                updateTests.myTodo.setStatus( state );
-                expect( updateTests.myTodo.getStatus() ).to.equal( state );
-            }
+                myTodo.setStatus( state );
+                expect( myTodo.getStatus() ).to.equal( state );
+            } );
 
-            @test 'should be able to move it to DONE'() {
+            it( 'should be able to move it to DONE', () => {
                 const state = TodoStatus.DONE;
-                updateTests.myTodo.setStatus( state );
-                expect( updateTests.myTodo.getStatus() ).to.equal( state );
-            }
+                myTodo.setStatus( state );
+                expect( myTodo.getStatus() ).to.equal( state );
+            } );
 
-            @test 'should be able to move it to BLOCKED'() {
+            it( 'should be able to move it to BLOCKED', () => {
                 const state = TodoStatus.BLOCKED;
-                updateTests.myTodo.setStatus( state );
-                expect( updateTests.myTodo.getStatus() ).to.equal( state );
-            }
+                myTodo.setStatus( state );
+                expect( myTodo.getStatus() ).to.equal( state );
+            } );
 
-            @test 'should be able to move it to BACKLOG'() {
+            it( 'should be able to move it to BACKLOG', () => {
                 const state = TodoStatus.BACKLOG;
-                updateTests.myTodo.setStatus( state );
-                expect( updateTests.myTodo.getStatus() ).to.equal( state );
-            }
+                myTodo.setStatus( state );
+                expect( myTodo.getStatus() ).to.equal( state );
+            } );
 
-            @test 'should be able to set the content to foobar'() {
-                updateTests.myTodo.setContent('foobar');
-                expect( updateTests.myTodo.getContent() ).to.equal('foobar');
-            }
-        }
-    });
+            it( 'should be able to set the content to foobar', () => {
+                myTodo.setContent( 'foobar' );
+                expect( myTodo.getContent() ).to.equal( 'foobar' );
+            } );
+        } );
+    } );
 
     describe( 'Epic items', () => {
-        @suite('A new instance of an Epic')
-        class epicInstanceTest {
+        describe( 'A new instance of an Epic', () => {
+            const title: string = 'foobar';
 
-            private readonly title: string = 'foobar';
+            it( 'should contain a title', () => {
 
-            @test 'should contain a title'() {
+            } );
 
-            }
+            it( 'should contain a list of linked todos', () => {
 
-            @test 'should contain a list of linked todos'() {
+            } );
 
-            }
+            it( 'should have a state', () => {
 
-            @test 'should have a state'() {
+            } );
 
-            }
+            it( 'should be placed in the BACKLOG', () => {
 
-            @test 'should be placed in the BACKLOG'() {
+            } );
+        } );
+    } );
 
-            }
-        }
-    })
-
-});
+} );
