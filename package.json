@@ -1,0 +1,28 @@
+{
+  "name": "statuspage",
+  "version": "0.0.1",
+  "description": "Small web application that displays a SCRUM style todo list and status as to what you're doing!",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThePenguin1140/statuspage"
+  },
+  "keywords": [
+    "todo",
+    "agile",
+    "node",
+    "angular"
+  ],
+  "author": "Jason Wuertz",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "mongoose": "^5.2.14",
+    "server": "^1.0.18"
+  }
+}
