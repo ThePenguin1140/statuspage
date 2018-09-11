@@ -13,11 +13,11 @@ describe( 'Epic items', () => {
         });
 
         it( 'should contain a title', () => {
-            expect( myEpic.getTitle() ).to.not.be.undefined.and.to.be.an.instanceof( String );
+            expect( myEpic.getContent() ).to.not.be.undefined.and.to.be.an.instanceof( String );
         } );
 
         it( 'should contain the right title', () => {
-            expect( myEpic.getTitle() ).to.equal( title );
+            expect( myEpic.getContent() ).to.equal( title );
         });
 
         it( 'should contain a list of todos', () => {
