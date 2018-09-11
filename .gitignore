@@ -62,3 +62,7 @@ typings/
 
 #intelliJ
 .idea
+
+#typescript stuff
+*.map
+*.js
