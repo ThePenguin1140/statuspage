@@ -42,4 +42,19 @@ describe( 'Epic items', () => {
             expect( myEpic.getProgress() ).to.equal( 0.0);
         });
     } );
+    describe( 'Updating an Epic', () => {
+        var title_one: string = 'title1';
+        var title_two: string = 'title2';
+        var epic: Epic;
+
+        before( ()=>{
+            epic = new Epic(title_one);
+        });
+
+        it('should change the content', () => {
+            expect( epic.getContent() ).to.equal( title_one );
+            epic.setContent(title_two);
+            expect( epic.getContent() ).to.equal(title_two);
+        });
+    } );
 } );
