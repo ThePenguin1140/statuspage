@@ -17,7 +17,11 @@ export class Todo {
         return this._status;
     }
 
-    setContent( content: string ): void {}
+    setContent( content: string ): void {
+        this._content = content;
+    }
 
-    setStatus( status: TodoStatus ): void {}
+    setStatus( status: TodoStatus ): void {
+        this._status = status;
+    }
 }
