@@ -1,4 +1,4 @@
-export enum TodoStatus {
+export enum ItemStatus {
     BACKLOG,
     BLOCKED,
     DOING,

@@ -1,7 +1,7 @@
 import { Epic } from "./Epic";
 import { expect } from "chai";
 import { Todo } from "../ToDo/Todo";
-import { TodoStatus } from "../../interfaces/interfaces";
+import { ItemStatus } from "../../interfaces/interfaces";
 
 describe( 'Epic items', () => {
     describe( 'A new instance of an Epic', () => {
@@ -29,7 +29,7 @@ describe( 'Epic items', () => {
         } );
 
         it( 'should be placed in the BACKLOG', () => {
-            expect( myEpic.getStatus() ).to.equal(TodoStatus.BACKLOG);
+            expect( myEpic.getStatus() ).to.equal(ItemStatus.BACKLOG);
         } );
 
         it('should return some progress', () => {

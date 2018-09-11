@@ -1,6 +1,6 @@
 import { Todo } from "./Todo";
 import { expect } from "chai";
-import { TodoStatus } from "../../interfaces/interfaces";
+import { ItemStatus } from "../../interfaces/interfaces";
 import * as _ from "lodash";
 
 describe( 'Todo items', () => {
@@ -26,7 +26,7 @@ describe( 'Todo items', () => {
         } );
 
         it( 'should be placed in the BACKLOG', () => {
-            expect( myTodo.getStatus() ).to.equal( TodoStatus.BACKLOG );
+            expect( myTodo.getStatus() ).to.equal( ItemStatus.BACKLOG );
         } );
     } );
 
@@ -39,10 +39,10 @@ describe( 'Todo items', () => {
         } );
 
         //test that we can move the item to all available states
-        for( let state in TodoStatus ) {
+        for( let state in ItemStatus ) {
             if( _.isNaN( Number( state ) ) ) {
                 it( 'should be able to move it to ' + state, () => {
-                    const s: TodoStatus = Number(TodoStatus[state]) as TodoStatus;
+                    const s: ItemStatus = Number(ItemStatus[state]) as ItemStatus;
                     myTodo.setStatus( s );
                     expect( myTodo.getStatus() ).to.equal( s );
                 });

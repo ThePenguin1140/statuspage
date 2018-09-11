@@ -1,19 +1,19 @@
-import { TodoStatus } from '../../interfaces/interfaces';
+import { ItemStatus } from '../../interfaces/interfaces';
 
 export class Todo {
     private _content: string;
-    private _status: TodoStatus;
+    private _status: ItemStatus;
 
     constructor( public content: string ) {
         this._content = content;
-        this._status = TodoStatus.BACKLOG;
+        this._status = ItemStatus.BACKLOG;
     }
 
     getContent(): string {
         return this._content;
     }
 
-    getStatus(): TodoStatus {
+    getStatus(): ItemStatus {
         return this._status;
     }
 
@@ -21,7 +21,7 @@ export class Todo {
         this._content = content;
     }
 
-    setStatus( status: TodoStatus ): void {
+    setStatus( status: ItemStatus ): void {
         this._status = status;
     }
 }
