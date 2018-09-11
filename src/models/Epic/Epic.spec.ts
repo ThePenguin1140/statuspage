@@ -63,5 +63,10 @@ describe( 'Epic items', () => {
             expect( epic.getTodos().length ).to.equal( 1 );
             expect( epic.getTodos()[ 0 ] ).to.equal( todo );
         } );
+
+        it('should update progress if todos are completed', () => {
+            epic.getTodos()[0].setStatus( ItemStatus.DONE );
+            expect( epic.getStatus() ).to.equal(1);
+        } );
     } );
 } );
