@@ -70,4 +70,29 @@ describe('Class Tests', () => {
             }
         }
     });
+
+    describe( 'Epic items', () => {
+        @suite('A new instance of an Epic')
+        class epicInstanceTest {
+
+            private readonly title: string = 'foobar';
+
+            @test 'should contain a title'() {
+
+            }
+
+            @test 'should contain a list of linked todos'() {
+
+            }
+
+            @test 'should have a state'() {
+
+            }
+
+            @test 'should be placed in the BACKLOG'() {
+
+            }
+        }
+    })
+
 });
