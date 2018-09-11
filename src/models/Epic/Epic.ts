@@ -5,10 +5,12 @@ import * as _ from 'lodash';
 export class Epic extends Item{
 
     private _todos: Todo[];
+    private _isMaster: boolean;
 
-    constructor( content: string ) {
+    constructor( content: string, todos: Item[] = [], isMasterEpic: boolean = false ) {
         super( content );
-        this._todos = [];
+        this._todos = todos;
+        this._isMaster = isMasterEpic;
     }
 
     getTodos() {
@@ -21,5 +23,10 @@ export class Epic extends Item{
             if( item.getStatus() == ItemStatus.DONE ) sum++;
             return sum;
         }, 0 ) / this._todos.length;
+    }
+
+
+    isMaster() {
+        return this._isMaster;
     }
 }

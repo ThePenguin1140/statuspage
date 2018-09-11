@@ -9,7 +9,13 @@ describe( 'Epic items', () => {
         var myEpic: Epic;
 
         before( () => {
-            myEpic = new Epic( title );
+            var one: Todo = new Todo( "Todo 1" );
+            var two: Todo = new Todo( "Todo 2" );
+            myEpic = new Epic( title, [ one, two ] );
+        });
+
+        it( 'should not be a master epic', () => {
+            expect( myEpic.isMaster() ).to.be.false;
         });
 
         it( 'should contain a title', () => {
