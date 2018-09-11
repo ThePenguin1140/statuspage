@@ -1,4 +1,4 @@
-import { TodoStatus } from '../interfaces';
+import { TodoStatus } from '../../interfaces/interfaces';
 
 export class Todo {
     private _content: string;
