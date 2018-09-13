@@ -1,5 +1,5 @@
 import { Item, ItemStatus } from "../../interfaces/interfaces";
-import { Todo } from "../ToDo/Todo";
+import { Todo } from "./ToDo/Todo";
 
 export class Epic extends Item{
 

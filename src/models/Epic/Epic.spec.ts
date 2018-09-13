@@ -1,6 +1,6 @@
 import { Epic } from "./Epic";
 import { expect } from "chai";
-import { Todo } from "../ToDo/Todo";
+import { Todo } from "./ToDo/Todo";
 import { ItemStatus } from "../../interfaces/interfaces";
 
 describe( 'Epic items', () => {

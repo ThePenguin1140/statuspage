@@ -1,6 +1,6 @@
 import { Todo } from "./Todo";
 import { expect } from "chai";
-import { ItemStatus } from "../../interfaces/interfaces";
+import { ItemStatus } from "../../../interfaces/interfaces";
 import * as _ from "lodash";
 
 describe( 'Todo items', () => {
