@@ -2,7 +2,7 @@ import { get, post, put, del } from 'server/router';
 import { Middlewares } from "server/typings/common";
 import { TodoController } from './Todo.controller';
 
-var epicRoutes: Middlewares = [
+var TodoRoutes: Middlewares = [
     get( '/epic:id/todo', TodoController.list),
     get( '/epic:id/todo:id', TodoController.item ),
     post( '/epic:id/todo', TodoController.create ),
@@ -10,4 +10,4 @@ var epicRoutes: Middlewares = [
     del( '/epic:id/todo:id', TodoController.delete )
 ];
 
-export default epicRoutes;
+export default TodoRoutes;

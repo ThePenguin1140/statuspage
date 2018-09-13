@@ -2,7 +2,7 @@ import { get, post, put, del } from 'server/router';
 import { Middlewares } from "server/typings/common";
 import { EpicController } from './Epic.controller';
 
-var epicRoutes: Middlewares = [
+var EpicRoutes: Middlewares = [
     get( '/epic', EpicController.list),
     get( '/epic:id', EpicController.item ),
     post( '/epic', EpicController.create ),
@@ -10,4 +10,4 @@ var epicRoutes: Middlewares = [
     del( '/epic:id', EpicController.delete )
 ];
 
-export default epicRoutes;
+export default EpicRoutes;
