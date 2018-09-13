@@ -1,7 +1,6 @@
 import { get, post, put, del } from 'server/router';
 import { Middlewares } from "server/typings/common";
 import { EpicController } from './Epic.controller';
-import { Epic } from "./Epic";
 
 var epicRoutes: Middlewares = [
     get( '/epic', EpicController.list),
